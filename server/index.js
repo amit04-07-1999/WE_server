@@ -26,6 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/user', user);
 app.use(middleware);
 
+
 // MongoDB connection
 const dbURI = 'mongodb+srv://WE:8877446687@we.r6e7kuz.mongodb.net/?appName=WE'; // MongoDB remote
 
@@ -37,8 +38,10 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
         console.error('Error connecting to MongoDB:', error.message);
     });
 
+app.get("/hello", (req, res) => {
+    res.send("Hello World");
 
-
+})
 
 // Start the server
 const port = process.env.PORT || 4000
